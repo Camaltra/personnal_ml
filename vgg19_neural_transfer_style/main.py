@@ -55,6 +55,7 @@ def run_style_tranfer(
 
         if i % 100 == 0:
             print(f"Epochs {i} / {num_iterations}")
+            print(f"Style Loss: {style_score} | Content Loss: {content_score}")
 
         if numerical_loss < best_loss:
             best_loss = numerical_loss

@@ -52,7 +52,7 @@ def compute_loss(
     style_score = style_loss * style_weight
     content_score = content_loss * content_weight
 
-    total_loss = style_loss + content_loss
+    total_loss = style_score + content_score
 
     return total_loss, style_score, content_score
 
