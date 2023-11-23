@@ -40,7 +40,7 @@ conda create --name <env> --file requirements.txt
 
 All file that contain code are available under the `src` folder
 
-`data_prep.py: This script handles the raw data provided by Kaggle, separating the dataset into two subsets. The training dataset consists of 95% of the raw data, ensuring equal class representation, while the validation dataset comprises the remaining 5%.
+`data_prep.py`: This script handles the raw data provided by Kaggle, separating the dataset into two subsets. The training dataset consists of 95% of the raw data, ensuring equal class representation, while the validation dataset comprises the remaining 5%.
 ```bash
 python data_prep.py
 ```
