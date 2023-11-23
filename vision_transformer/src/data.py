@@ -12,7 +12,8 @@ import cv2
 
 class CatVsDogDataset(Dataset):
     def __init__(self, type: str, transform: None | A.Compose = None) -> None:
-        self.path = Path(Path().absolute(), "data", type)
+        self.path = Path(Path().absolute(), "..", "data", type)
+        print(self.path)
         self.items = [
             img_path.split("/")[-1] for img_path in glob(f"{self.path}/*.jpg")
         ]
