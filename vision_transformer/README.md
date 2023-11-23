@@ -5,7 +5,7 @@
 ## Overview
 
 This repository is my own implementation of the Vision Transformer from the [paper](https://arxiv.org/abs/2010.11929) `AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE`  
-All the theoretical part are in the linked [blog]()
+All the theoretical part are in the linked [blog](https://medium.com/@mickael.boillaud/vision-transformer-from-scratch-using-pytorch-d3f7401551ef)
 
 ## Table of Contents
 
