@@ -28,7 +28,7 @@ class CatVsDogDataset(Dataset):
     def __getitem__(self, ix: int) -> tuple[torch.Tensor, torch.Tensor]:
         img = np.array(Image.open(f"{self.path}/{self.items[ix]}").convert("RGB"))
         target = 1 if self.items[ix].startswith("dog") else 0
-        if transforms is not None:
+        if self.transform is not None:
             img = self.transform(image=img)["image"]
         return img.float(), torch.tensor([target]).float()
 
