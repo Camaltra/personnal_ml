@@ -135,15 +135,6 @@ class PointNetSeg(nn.Module):
 
 
 if __name__ == "__main__":
-    # a = PointNetBase()
-    # x = torch.randn((2, 3, 64))
-    # out = a(x)
-    # print(out.shape)
-    # b = TNet(64)
-    # x = torch.randn((2, 64, 64))
-    # out = b(x)
-    # print(out.shape)
-
     a = PointNetSeg(10)
     sample = torch.randn((2, 3, 64))
     out = a(sample)
