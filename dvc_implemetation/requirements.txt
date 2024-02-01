@@ -1,0 +1,12 @@
+torch
+torchvision
+opencv-python
+tqdm
+pillow
+dvc
+dvc[s3]
+python-box
+dvclive
+boto3
+numpy
+albumentations

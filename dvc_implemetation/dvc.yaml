@@ -1,0 +1,70 @@
+stages:
+  transform:
+    cmd: python src/stages/transform.py --config=params.yaml
+    deps:
+    - src/stages/transform.py
+    - src/pipelines/transform.py
+    params:
+    - base
+    - transform
+    outs:
+    - src/data/train/img
+    - src/data/train/mask
+    - src/data/test/img
+    - src/data/test/mask
+
+  split:
+    cmd: python src/stages/split.py --config=params.yaml
+    deps:
+    - src/pipelines/split.py
+    - src/stages/split.py
+    - src/data/train/img
+    - src/data/train/mask
+    params:
+    - base
+    - transform
+    - split
+    outs:
+    - src/data/valid/img
+    - src/data/valid/mask
+
+  train:
+    cmd: python src/stages/train.py --config=params.yaml
+    deps:
+    - src/stages/train.py
+    - src/pipelines/train.py
+    - src/pipelines/dataset.py
+    - src/model/unet.py
+    - src/data/train/img
+    - src/data/train/mask
+    - src/data/valid/img
+    - src/data/valid/mask
+    params:
+    - base
+    - transform
+    - train
+    outs:
+    - models/model_pickle.pkl
+
+  evaluate:
+    cmd: python src/stages/eval.py --config=params.yaml
+    deps:
+    - models/model_pickle.pkl
+    - src/data/test/img
+    - src/data/test/mask
+    - src/stages/eval.py
+    - src/pipelines/eval.py
+    params:
+    - base
+    - train
+    - split
+    - eval
+    metrics:
+    - evaluation/metrics.json:
+        cache: false
+
+metrics:
+- dvclive/metrics.json
+plots:
+- dvclive/plots/metrics:
+    x: step

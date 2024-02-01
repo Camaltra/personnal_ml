@@ -1,0 +1,32 @@
+base:
+  project: road_seg
+  random_state: 42
+
+transform:
+  raw_dataset_dir: src/data
+  raw_dataset_fname: raw_dataset
+  train_dir_path: train
+  test_dir_path: test
+  test_idx:
+    - 1
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+  patch_size: 256
+
+split:
+  prc_valid: 0.2
+  valid_dir_path: valid
+
+train:
+  batch_size: 64
+  num_epoch: 7
+  lr: 0.0001
+  model_pickle_fpath: models/model_pickle.pkl
+  augmentations: {p_flip_honz: 0, p_flip_vert: 0.2, max_rotate: 20.0, p_rotate: 0.5}
+  training_tmp_output_base_fpath: src/training
+
+eval:
+  metrics_file: evaluation/metrics.json
