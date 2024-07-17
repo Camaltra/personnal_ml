@@ -1,4 +1,4 @@
-# Road Segementation using U-Net
+# Vision Transformer
 
 <img src="./readme_img/vit_architechture.png" width="600"/> 
 
